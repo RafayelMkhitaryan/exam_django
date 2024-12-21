@@ -1,0 +1,4 @@
+{% for course in courses %}
+    <h2><a href="{% url 'course_detail' course.id %}">{{ course.title }}</a></h2>
+    <p>Rate: {{ course.rate }} ({{ course.count }} votes)</p>
+{% endfor %}

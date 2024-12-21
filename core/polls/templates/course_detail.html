@@ -1,0 +1,10 @@
+<title>{{ course.title }}</title>
+<h1>{{ course.title }}</h1>
+<p>{{ course.description }}</p>
+<p>Rate: {{ course.rate }} ({{ course.count }} votes)</p>
+
+<form method="post" action="{% url 'rate_course' course.id %}">
+    {% csrf_token %}
+    <input type="number" name="rating" step="0.1" min="0" max="5" required>
+    <button type="submit">Rate</button>
+</form>
