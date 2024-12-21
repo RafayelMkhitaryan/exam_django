@@ -10,6 +10,7 @@ def index(request):
     return render(request, '/polls/index.html', {'courses': courses})
 
 
+
 def course_detail(request, course_id):
     course = get_object_or_404(Course, pk=course_id)
     return render(request, "polls/course_detail.html", {"course": course})
@@ -61,7 +62,7 @@ def login(request):
 
     user = authenticate(username=email, password=password)
     print("USER", email, password)
-    if user:
+    if user is not None:
         login(request)
         return HttpResponseRedirect('/polls/')
     else:
